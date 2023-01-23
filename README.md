@@ -45,12 +45,25 @@ let read = new Task;
 TodoList.addTask(read)
 expected Output: TodoList { tasks: { 3: Task { name, dueDate, etc } } };
 
-describe: TodoList.prototype.completedTask(id)
+describe: completedTask(id)
 
 test: "should mark task in todo as completed"
 code:
 myTodo.completedTask('1');
 expected Output: myTodo.tasks['1'].done = true;
+
+
+test: "should return false if bad id given"
+code:
+myTodo.completedTask('4');
+expected Output: myTodo.completedTask['4'] = false;
+
+describe: removeTask(id)
+
+test: "should remove task from todo list"
+code:
+myTodo.remove('1');
+expected Output: myTodo.tasks['1'] = false;
 
 ## license
 

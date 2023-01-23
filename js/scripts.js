@@ -21,7 +21,11 @@ TodoList.prototype.newId = function() {
 }
 
 TodoList.prototype.completedTask = function(id) {
-  this.tasks[id].done = true;
+  if (this.tasks[id]) {
+    this.tasks[id].done = true;
+  } else {
+  return false;
+  }
 }
 
 // business logic task
@@ -35,7 +39,9 @@ function Task(name,dueDate) {
 let myTodo = new TodoList();
 let read = new Task('read monday night\'s chapters for Tuesday', '1.23');
 let call = new Task('call to check on dad', '1.23');
+
 myTodo.addTask(read);
 myTodo.addTask(call);
-myTodo.completedTask('1');
+myTodo.completedTask(4);
+
 console.log(myTodo.tasks);
