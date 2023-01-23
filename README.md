@@ -45,6 +45,13 @@ let read = new Task;
 TodoList.addTask(read)
 expected Output: TodoList { tasks: { 3: Task { name, dueDate, etc } } };
 
+describe: TodoList.prototype.completedTask(id)
+
+test: "should mark task in todo as completed"
+code:
+myTodo.completedTask('1');
+expected Output: myTodo.tasks['1'].done = true;
+
 ## license
 
 feel free to get in touch at [christopher(dot)johnedis(at)gmail(dot)com](christopher.johnedis@gmail.com)

@@ -1,6 +1,3 @@
-//To Do List
-//Make a to do list page where people can add tasks to create a list of things to do.
-//
 //Add an option for users to indicate a task is done.
 //Allow users to remove a task from the list.
 //Use test-driven development to write your business logic, and include the tests in your README.md. After every passing test, make sure to commit your code.
@@ -23,6 +20,10 @@ TodoList.prototype.newId = function() {
   return this.numberId += 1;
 }
 
+TodoList.prototype.completedTask = function(id) {
+  this.tasks[id].done = true;
+}
+
 // business logic task
 
 function Task(name,dueDate) {
@@ -33,6 +34,8 @@ function Task(name,dueDate) {
 
 let myTodo = new TodoList();
 let read = new Task('read monday night\'s chapters for Tuesday', '1.23');
+let call = new Task('call to check on dad', '1.23');
 myTodo.addTask(read);
-
-console.log(myTodo);
+myTodo.addTask(call);
+myTodo.completedTask('1');
+console.log(myTodo.tasks);
