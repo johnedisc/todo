@@ -1,4 +1,4 @@
-local bufnr = 6
+local bufnr = 5
 
 vim.api.nvim_create_autocmd("BufWritePost", {
   group = vim.api.nvim_create_augroup("k_bola", { clear = true }),

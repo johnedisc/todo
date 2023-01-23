@@ -1,55 +1,38 @@
-// business logic for addressBook
-function AddressBook() {
-  this.contacts = {};
-  this.currentId = 0;
+//To Do List
+//Make a to do list page where people can add tasks to create a list of things to do.
+//
+//Add an option for users to indicate a task is done.
+//Allow users to remove a task from the list.
+//Use test-driven development to write your business logic, and include the tests in your README.md. After every passing test, make sure to commit your code.
+//If you complete the business logic, you may work on adding a user interface. (See the upcoming lessons for more on adding a UI.)
+//
+
+// business logic TodoList
+
+function TodoList() {
+  this.tasks = {};
+  this.numberId = 0;
 }
 
-AddressBook.prototype.addContact = function(contact) {
-  contact.id = this.assignId();
-  this.contacts[contact.id] = contact;
+TodoList.prototype.addTask = function(newTask) {
+  newTask.id = this.newId();
+  this.tasks[newTask.id] = newTask; 
 }
 
-AddressBook.prototype.assignId = function() {
-  return this.currentId += 1;
+TodoList.prototype.newId = function() {
+  return this.numberId += 1;
 }
 
-AddressBook.prototype.findContact = function(id) {
-  if (this.contacts[id] !== undefined) {
-    return this.contacts[id];
-  }
-  return false;
-};
+// business logic task
 
-AddressBook.prototype.deleteContact = function(id) {
-  if (this.contacts[id] === undefined) {
-    return false;
-  }
-  delete this.contacts[id];
-  return true;
-};
-
-// business logic for Contact
-function Contact(firstName,lastName,phoneNumber) {
-  this.first = firstName;
-  this.last = lastName;
-  this.number = phoneNumber;
+function Task(name,dueDate) {
+  this.name = name;
+  this.due = dueDate;
+  this.done = false;
 }
 
-Contact.prototype.fullName = function() {
-  return this.first + ' ' + this.last; 
-}
+let myTodo = new TodoList();
+let read = new Task('read monday night\'s chapters for Tuesday', '1.23');
+myTodo.addTask(read);
 
-Contact.prototype.update = function(firstName,lastName,phoneNumber) {
-  
-}
-
-let addressBook = new AddressBook();
-let george = new Contact('george','gwedel','483-384-3482');
-let miles = new Contact('miles','davis','432-542-9842');
-addressBook.addContact(george);
-addressBook.addContact(miles);
-
-george.first = 'jorge';
-console.log(addressBook.contacts['1'].first = 'georgie');
-console.log(george)
-
+console.log(myTodo);
