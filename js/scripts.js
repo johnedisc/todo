@@ -1,9 +1,3 @@
-//Add an option for users to indicate a task is done.
-//Allow users to remove a task from the list.
-//Use test-driven development to write your business logic, and include the tests in your README.md. After every passing test, make sure to commit your code.
-//If you complete the business logic, you may work on adding a user interface. (See the upcoming lessons for more on adding a UI.)
-//
-
 // business logic TodoList
 
 function TodoList() {
@@ -28,6 +22,14 @@ TodoList.prototype.completedTask = function(id) {
   }
 }
 
+TodoList.prototype.removeTask = function(id) {
+  if (this.tasks[id]) {
+    delete this.tasks[id];
+  } else {
+  return false;
+  }
+}
+
 // business logic task
 
 function Task(name,dueDate) {
@@ -36,12 +38,16 @@ function Task(name,dueDate) {
   this.done = false;
 }
 
-let myTodo = new TodoList();
-let read = new Task('read monday night\'s chapters for Tuesday', '1.23');
-let call = new Task('call to check on dad', '1.23');
+// ui logic
 
-myTodo.addTask(read);
-myTodo.addTask(call);
-myTodo.completedTask(4);
+window.addEventListener('load', (e) => {
+  e.preventDefault;
 
-console.log(myTodo.tasks);
+  const taskForm = document.getElementById('taskForm');
+
+  taskForm.addEventListener('submit', (e) => {
+    
+
+  });
+
+});

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/styles.css" rel="stylesheet">
+  <script src="js/scipts.js"></script>
+</head>
+<body>
+  <div class="container">
+
+    <form id='taskForm'>
+      <label for="listName">select todo list</label>
+      <select for="listName">
+        <option>orrin's list</option>
+        <option>fredysblinda's list</option>
+        <option>add new list</option>
+      </select>
+      
+      <div class="hidden">
+        <label for="newList">name your new list</label>
+        <input type="text" name="newList" id="newList">
+        <button type="submit">add new list</button>
+      </div>
+
+      <label for="task">describe task</label>
+      <input type="text" name="task" id="task">
+
+      <label for="dueDate">due date</label>
+      <input type="date" name="dueDate" id="dueDate" min="2023-01-23">
+
+      <button type="submit">add task</button>
+    </form>
+
+    <div id="taskDisplay">
+    </div>
+
+  </div>
+</body>
+</html>
